@@ -18,6 +18,10 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
+      - name: Install npm packages
+        run: npm ci
+      - name: Build Angular App in Production
+        run: npm run build --prod
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
